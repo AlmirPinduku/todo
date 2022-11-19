@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 04:23 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Pritësi (host): 127.0.0.1
+-- Koha e gjenerimit: Nën 19, 2022 në 11:56 PD
+-- Versioni i serverit: 10.4.25-MariaDB
+-- PHP Versioni: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cit_crud`
+-- Databaza: `cit_crud`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `todo`
+-- Struktura e tabelës për tabelën `todo`
 --
 
 CREATE TABLE `todo` (
@@ -37,33 +37,34 @@ CREATE TABLE `todo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `todo`
+-- Zbraz të dhënat për tabelën `todo`
 --
 
 INSERT INTO `todo` (`id`, `todo`, `todo_time`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Saturday Lab Class Exam', '2022-01-15', 1, '2022-01-13 20:38:37', '2022-01-13 21:17:52'),
-(2, 'Coding for 6 hours', '2022-01-22', 1, '2022-01-13 20:51:20', '2022-01-13 21:21:13'),
-(4, 'Going to Market', '2022-01-21', 1, '2022-01-13 21:18:34', '2022-01-13 21:21:09');
+(62, 'Create your Dashboard', '', 1, '2022-11-18 22:13:12', '2022-11-19 11:51:20'),
+(63, 'Edit your buttons', '', 1, '2022-11-18 22:13:26', '2022-11-19 11:51:23'),
+(64, 'On page 1 change your colors', '', 0, '2022-11-18 22:13:40', '2022-11-19 00:02:46'),
+(65, 'Align your text in center', '', 0, '2022-11-18 22:13:51', '2022-11-18 22:13:51');
 
 --
--- Indexes for dumped tables
+-- Indekset për tabelat e hedhura
 --
 
 --
--- Indexes for table `todo`
+-- Indekset për tabelë `todo`
 --
 ALTER TABLE `todo`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT për tabelat e hedhura
 --
 
 --
--- AUTO_INCREMENT for table `todo`
+-- AUTO_INCREMENT për tabelë `todo`
 --
 ALTER TABLE `todo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
