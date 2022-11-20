@@ -17,6 +17,7 @@ if (isset($_GET['id'])) {
 
 
 $get_todo = getTodo();
+$getTodo = getSingleTodo($id);
 
 if (isset($_GET['status']) && $_GET['id']) {
     $id = $_GET['id'];
@@ -114,7 +115,7 @@ if (isset($_POST['todo_submit'])) {
                         <div class="tab__content mt-2">
                             <table class="w-full">
                                 <tbody>
-
+                                
                                     <?php
                                     foreach ($get_todo as $todo) {
 
@@ -125,7 +126,30 @@ if (isset($_POST['todo_submit'])) {
                                             <div class="flex pt-2.5 font-medium">
                                                 <div class="flex items-center w-full rounded-lg mr-2 ">
                                                     <?php
-                                                    if ($todo['status'] == 1) { ?>
+                                                    if ($getTodo['todo'] === $todo['todo']) {
+
+                                                    if ($todo['status'] == 1) {
+                                                     ?>
+                                                    <div class="bg-[#ecfdf3]  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
+                                                        <a href="index.php?id=<?= $todo['id'] ?>&status=undone"
+                                                            class="text-2xl mr-1.5 text-[#9aa0aa]"><i
+                                                                class="fa-regular fa-circle-check"></i></a>
+
+                                                        <p class="text-[#9aa0aa]"><?= $todo['todo']; ?></p>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class="bg-white  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
+                                                        <a href="index.php?id=<?= $todo['id'] ?>&status=done"
+                                                            class="text-2xl mr-1.5 text-[#9aa0aa]"><i
+                                                                class="fa-regular fa-circle-check"></i></a>
+                                                    <p class="text-[#9aa0aa]"><?= $todo['todo']; ?></p>
+                                                    </div>
+                                                    <?php } }else {?>
+                                                        <?php
+                                                    if ($getTodo['todo'] !== $todo['todo']) {
+
+                                                        if ($todo['status'] == 1) {
+                                                     ?>
                                                     <div class="bg-[#ecfdf3]  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
                                                         <a href="index.php?id=<?= $todo['id'] ?>&status=undone"
                                                             class="text-[#12b76a] text-2xl mr-1.5"><i
@@ -138,19 +162,25 @@ if (isset($_POST['todo_submit'])) {
                                                         <a href="index.php?id=<?= $todo['id'] ?>&status=done"
                                                             class="text-2xl mr-1.5 text-[#344054]"><i
                                                                 class="fa-regular fa-circle-check"></i></a>
-                                                        <?= $todo['todo']; ?>
+                                                    <?= $todo['todo']; ?>
                                                     </div>
-                                                    <?php } ?>
+                                                    <?php } }}?>
                                                 </div>
 
+                                                <?php
+                                                    if ($getTodo['todo'] === $todo['todo']) {
+                                                     ?>
 
+                                                <div class="flex items-center border-2 border-[#d0d5dd] p-2.5 px-16 py-3 rounded-lg mr-2">
+                                                    <a href="edit.php?id=<?= $todo['id']; ?>" class="text-[#9aa0aa]">Edit</a>
+                                                </div>
+                                                <?php } else{?>
+                                                    <?php if ($getTodo['todo'] !== $todo['todo']) {?>
 
-                                                <div
-                                                    class="flex items-center border-2 border-[#d0d5dd] p-2.5 px-16 py-3 rounded-lg mr-2">
+                                                        <div class="flex items-center border-2 border-[#d0d5dd] p-2.5 px-16 py-3 rounded-lg mr-2">
                                                     <a href="edit.php?id=<?= $todo['id']; ?>" class="">Edit</a>
                                                 </div>
-
-
+                                                <?php }}?>
                                                 <section class="button-section">
                                                     <div
                                                         class="flex items-center border-2 border-[#f04438] p-2.5 px-12 py-3 rounded-lg bg-[#f04438]">
