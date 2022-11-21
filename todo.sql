@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Pritësi (host): 127.0.0.1
--- Koha e gjenerimit: Nën 19, 2022 në 11:56 PD
+-- Koha e gjenerimit: Nën 21, 2022 në 09:14 MD
 -- Versioni i serverit: 10.4.25-MariaDB
--- PHP Versioni: 7.4.30
+-- PHP Versioni: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,10 +41,7 @@ CREATE TABLE `todo` (
 --
 
 INSERT INTO `todo` (`id`, `todo`, `todo_time`, `status`, `created_at`, `updated_at`) VALUES
-(62, 'Create your Dashboard', '', 1, '2022-11-18 22:13:12', '2022-11-19 11:51:20'),
-(63, 'Edit your buttons', '', 1, '2022-11-18 22:13:26', '2022-11-19 11:51:23'),
-(64, 'On page 1 change your colors', '', 0, '2022-11-18 22:13:40', '2022-11-19 00:02:46'),
-(65, 'Align your text in center', '', 0, '2022-11-18 22:13:51', '2022-11-18 22:13:51');
+(1, 'ads', '', 0, '2022-11-21 21:06:31', '2022-11-21 21:14:33');
 
 --
 -- Indekset për tabelat e hedhura
@@ -64,7 +61,7 @@ ALTER TABLE `todo`
 -- AUTO_INCREMENT për tabelë `todo`
 --
 ALTER TABLE `todo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
