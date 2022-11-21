@@ -34,6 +34,7 @@ if (isset($_POST['todo_submit'])) {
     createTodo($_POST);
 }
 
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -72,7 +73,6 @@ if (isset($_POST['todo_submit'])) {
 </head>
 
 <body>
-    <!-- ADD A TODO -->
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -87,6 +87,7 @@ if (isset($_POST['todo_submit'])) {
 
 
                 <div data-tabs class="tabs">
+
                     <div class="tab">
                         <input type="radio" name="tabgroup" id="tab-1" checked>
                         <label for="tab-1" class="px-12 py-2.5 rounded-lg">All</label>
@@ -94,7 +95,6 @@ if (isset($_POST['todo_submit'])) {
                             <table class="w-full">
                                 <tbody>
                                     <?php
-
                                     foreach ($get_todo as $todo) {
                                     ?>
                                     <tr>
@@ -106,7 +106,7 @@ if (isset($_POST['todo_submit'])) {
                                                     <div
                                                         class="bg-[#ecfdf3]  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
                                                         <a href="index.php?id=<?= $todo['id'] ?>&status=undone"
-                                                            class="text-[#12b76a] text-2xl mr-1.5"><i
+                                                            class="text-[#12b76a] text-2xl mr-1.5 hover:text-[#12b76a]"><i
                                                                 class="fa-regular fa-circle-check"></i></a>
 
                                                         <?= $todo['todo']; ?>
@@ -115,7 +115,7 @@ if (isset($_POST['todo_submit'])) {
                                                     <div
                                                         class="bg-white  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
                                                         <a href="index.php?id=<?= $todo['id'] ?>&status=done"
-                                                            class="text-2xl mr-1.5 text-[#344054]"><i
+                                                            class="text-2xl mr-1.5 text-[#344054] hover:text-[#344054]"><i
                                                                 class="fa-regular fa-circle-check"></i></a>
                                                         <?= $todo['todo']; ?>
                                                     </div>
@@ -184,9 +184,8 @@ if (isset($_POST['todo_submit'])) {
                                             </div>
                                         </td>
                                     </tr>
-                                    <?php } ?>
+                                    <?php }?>
                                     <script src="app.js"></script>
-
                                 </tbody>
                             </table>
                         </div>
@@ -214,17 +213,9 @@ if (isset($_POST['todo_submit'])) {
                                                     <div
                                                         class="bg-[#ecfdf3]  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
                                                         <a href="index.php?id=<?= $todo['id'] ?>&status=undone"
-                                                            class="text-[#12b76a] text-2xl mr-1.5"><i
+                                                            class="text-[#12b76a] text-2xl mr-1.5 hover:text-[#12b76a]"><i
                                                                 class="fa-regular fa-circle-check"></i></a>
 
-                                                        <?= $todo['todo']; ?>
-                                                    </div>
-                                                    <?php } else { ?>
-                                                    <div
-                                                        class="bg-white  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
-                                                        <a href="index.php?id=<?= $todo['id'] ?>&status=done"
-                                                            class="text-2xl mr-1.5 text-[#344054]"><i
-                                                                class="fa-regular fa-circle-check"></i></a>
                                                         <?= $todo['todo']; ?>
                                                     </div>
                                                     <?php } ?>
@@ -309,6 +300,7 @@ if (isset($_POST['todo_submit'])) {
                             <table class="w-full">
                                 <tbody>
                                     <?php
+                                     
                                     foreach (incompitedTodo() as $todo) {
                                     ?>
                                     <tr>
@@ -316,20 +308,11 @@ if (isset($_POST['todo_submit'])) {
                                             <div class="flex pt-2.5 font-medium">
                                                 <div class="flex items-center w-full rounded-lg mr-2 ">
                                                     <?php
-                                        if ($todo['status'] == 1) { ?>
-                                                    <div
-                                                        class="bg-[#ecfdf3]  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
-                                                        <a href="index.php?id=<?= $todo['id'] ?>&status=undone"
-                                                            class="text-[#12b76a] text-2xl mr-1.5"><i
-                                                                class="fa-regular fa-circle-check"></i></a>
-
-                                                        <?= $todo['todo']; ?>
-                                                    </div>
-                                                    <?php } else { ?>
+                                                    if ($todo['status'] == 0) { ?>
                                                     <div
                                                         class="bg-white  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
                                                         <a href="index.php?id=<?= $todo['id'] ?>&status=done"
-                                                            class="text-2xl mr-1.5 text-[#344054]"><i
+                                                            class="text-2xl mr-1.5 text-[#344054] hover:text-[#344054]"><i
                                                                 class="fa-regular fa-circle-check"></i></a>
                                                         <?= $todo['todo']; ?>
                                                     </div>
@@ -410,8 +393,6 @@ if (isset($_POST['todo_submit'])) {
     </div>
     </div>
 
-    <!-- END A TODO -->
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -427,8 +408,6 @@ if (isset($_POST['todo_submit'])) {
 <script>
 
     (function ($, document) {
-
-        // get tallest tab__content element
         let height = -1;
 
         $('.tab__content').each(function () {
@@ -436,7 +415,6 @@ if (isset($_POST['todo_submit'])) {
             $(this).css('position', 'absolute');
         });
 
-        // set height of tabs + top offset
         $('[data-tabs]').css('min-height', height + 40 + 'px');
 
     }(jQuery, document));

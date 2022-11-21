@@ -230,13 +230,14 @@ if (isset($_POST['todo_submit'])) {
                                                             </div>
                                                         </div>
                                                     </section>
-                                                    <script src="app.js"></script>
+                                                    
                                                 </aside>
 
                                             </div>
                                         </td>
                                     </tr>
                                     <?php } ?>
+                                    <script src="app.js"></script>
                                 </tbody>
                             </table>
                         </div>
@@ -332,7 +333,7 @@ if (isset($_POST['todo_submit'])) {
                                                                 </button>
                                                             </div>
                                                         </div>
-                                                        <script src="app1.js"> </script>
+                                                        
                                                     </section>
                                                 </aside>
 
@@ -340,6 +341,7 @@ if (isset($_POST['todo_submit'])) {
                                         </td>
                                     </tr>
                                     <?php } ?>
+                                    <script src="app1.js"> </script>
                                 </tbody>
                             </table>
                         </div>
@@ -434,7 +436,7 @@ if (isset($_POST['todo_submit'])) {
                                                                 </button>
                                                             </div>
                                                         </div>
-                                                        <script src="app2.js"> </script>
+                                                        
                                                     </section>
                                                 </aside>
 
@@ -442,6 +444,7 @@ if (isset($_POST['todo_submit'])) {
                                         </td>
                                     </tr>
                                     <?php } ?>
+                                    <script src="app2.js"> </script>
                                 </tbody>
                             </table>
                         </div>

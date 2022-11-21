@@ -96,6 +96,7 @@ function getSingleTodo($id){
     $get_todo = mysqli_fetch_assoc($execute_query);
     return $get_todo;
 }
+
 function updateTodo($request){
     global $con;
     $id = mysqli_real_escape_string($con,$request['id']);
