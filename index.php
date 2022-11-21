@@ -32,6 +32,7 @@ if (isset($_GET['action']) && $_GET['id']) {
 }
 if (isset($_POST['todo_submit'])) {
     createTodo($_POST);
+    header('location: index2.php');
 }
 
 
@@ -40,22 +41,18 @@ if (isset($_POST['todo_submit'])) {
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 
     <link rel="stylesheet" href="style.css">
-    <!-- tailwindcss CND -->
 
     <script src="https://cdn.tailwindcss.com"></script>
 
 
-    <!-- fontawsome -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
@@ -93,100 +90,14 @@ if (isset($_POST['todo_submit'])) {
                         <label for="tab-1" class="px-12 py-2.5 rounded-lg">All</label>
                         <div class="tab__content mt-2">
                             <table class="w-full">
-                                <tbody>
-                                    <?php
-                                    foreach ($get_todo as $todo) {
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <div class="flex pt-2.5 font-medium">
-                                                <div class="flex items-center w-full rounded-lg mr-2 ">
-                                                    <?php
-                                        if ($todo['status'] == 1) { ?>
-                                                    <div
-                                                        class="bg-[#ecfdf3]  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
-                                                        <a href="index.php?id=<?= $todo['id'] ?>&status=undone"
-                                                            class="text-[#12b76a] text-2xl mr-1.5 hover:text-[#12b76a]"><i
-                                                                class="fa-regular fa-circle-check"></i></a>
-
-                                                        <?= $todo['todo']; ?>
-                                                    </div>
-                                                    <?php } else { ?>
-                                                    <div
-                                                        class="bg-white  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
-                                                        <a href="index.php?id=<?= $todo['id'] ?>&status=done"
-                                                            class="text-2xl mr-1.5 text-[#344054] hover:text-[#344054]"><i
-                                                                class="fa-regular fa-circle-check"></i></a>
-                                                        <?= $todo['todo']; ?>
-                                                    </div>
-                                                    <?php } ?>
-                                                </div>
-
-
-
-                                                <div
-                                                    class="flex items-center border-2 border-[#d0d5dd] p-2.5 px-16 py-3 rounded-lg mr-2">
-                                                    <a href="edit.php?id=<?= $todo['id']; ?>" class="">Edit</a>
-                                                </div>
-
-
-                                                <section class="button-section">
-                                                    <div
-                                                        class="flex items-center border-2 border-[#f04438] p-2.5 px-12 py-3 rounded-lg bg-[#f04438]">
-                                                        <button class="open-modal"><i
-                                                                class="fa-regular fa-trash-can text-white text-xl"></i></button>
-                                                    </div>
-                                                </section>
-
-                                                <aside id="modal-overlay" class="hidden w-full h-screen ">
-                                                    <section id="modal-content">
-                                                        <div class="flex justify-end">
-                                                            <button class="close-modal font-bold">&#10005;</button>
-                                                        </div>
-                                                        <div class="flex justify-start  ml-4">
-                                                            <div class="mb-12 flex items-center justify-center">
-                                                                <div
-                                                                    class="w-16 h-16 bg-[#fef3f2] rounded-full absolute p-6">
-                                                                </div>
-                                                                <div
-                                                                    class="w-12 h-12 bg-[#fee4e2] rounded-full absolute ">
-                                                                </div>
-                                                                <p class="z-10 text-[#d92d20]"><i
-                                                                        class="fa-regular fa-trash-can"></i></p>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="">
-                                                            <p class="mb-3">Delete Task</p>
-                                                            <p class="text-[#667085] mb-8">Are you sure you want to
-                                                                delete this task? This action cannot be undone.</p>
-                                                        </div>
-                                                        <div class="flex justify-between">
-                                                            <div
-                                                                class="w-44 py-2 flex justify-center bg-white border-2 border-[#d0d5dd] rounded-lg pr-2">
-                                                                <button>
-                                                                    <a href="#"
-                                                                        class="close-modal no-underline">Cancle</a>
-                                                                </button>
-                                                            </div>
-
-                                                            <div
-                                                                class="w-44 py-2 flex justify-center bg-[#d92d20] rounded-lg">
-                                                                <button>
-                                                                    <a href="index.php?id=<?= $todo['id']; ?>&action=delete"
-                                                                        class="text-white no-underline">Delete</a>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </section>
-                                                </aside>
-
+                                    <div class="h-96 mt-20 flex flex-col justify-center items-center">
+                                        <p class="text-2xl mb-8" style="font-weight: 500;">You don`t  have anything created!</p>
+                                            <div class="border-2 border-black w-28 h-28 rounded-full" style="opacity: 0.5;">
+                                                <i class="fa fa-plus flex items-center justify-center " style="font-size:35px; margin-top: 35px; margin-left: -3px;"></i>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <?php }?>
+                                        <p class="text-2xl mt-3" style="color: #344054; opacity: 0.5; font-weight: 500;">Create Task</p>
+                                    </div>
                                     <script src="app.js"></script>
-                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -198,96 +109,14 @@ if (isset($_POST['todo_submit'])) {
                         <label for="tab-2" class="px-12 py-2.5 rounded-lg ">Completed</label>
                         <div class="tab__content mt-2">
                             <table class="w-full">
-
-                                <tbody>
-
-                                    <?php
-                                foreach (compitedTodo() as $todo) {
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <div class="flex pt-2.5 font-medium">
-                                                <div class="flex items-center w-full rounded-lg mr-2 ">
-                                                    <?php
-                                                if ($todo['status'] == 1) { ?>
-                                                    <div
-                                                        class="bg-[#ecfdf3]  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
-                                                        <a href="index.php?id=<?= $todo['id'] ?>&status=undone"
-                                                            class="text-[#12b76a] text-2xl mr-1.5 hover:text-[#12b76a]"><i
-                                                                class="fa-regular fa-circle-check"></i></a>
-
-                                                        <?= $todo['todo']; ?>
-                                                    </div>
-                                                    <?php } ?>
-                                                </div>
-
-
-
-                                                <div
-                                                    class="flex items-center border-2 border-[#d0d5dd] p-2.5 px-16 py-3 rounded-lg mr-2">
-                                                    <a href="edit.php?id=<?= $todo['id']; ?>" class="">Edit</a>
-                                                </div>
-
-
-                                                <section class="button-section">
-                                                    <div
-                                                        class="flex items-center border-2 border-[#f04438] p-2.5 px-12 py-3 rounded-lg bg-[#f04438]">
-                                                        <button class="open-modal1"><i
-                                                                class="fa-regular fa-trash-can text-white text-xl"></i></button>
-                                                    </div>
-                                                </section>
-
-                                                <aside id="modal-overlay1" class="hidden w-full h-screen ">
-                                                    <section id="modal-content">
-                                                        <div class="flex justify-end">
-                                                            <button class="close-modal1 font-bold">&#10005;</button>
-                                                        </div>
-                                                        <div class="flex justify-start  ml-4">
-                                                            <div class="mb-12 flex items-center justify-center">
-                                                                <div
-                                                                    class="w-16 h-16 bg-[#fef3f2] rounded-full absolute p-6">
-                                                                </div>
-                                                                <div
-                                                                    class="w-12 h-12 bg-[#fee4e2] rounded-full absolute ">
-                                                                </div>
-                                                                <p class="z-10 text-[#d92d20]"><i
-                                                                        class="fa-regular fa-trash-can"></i></p>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="">
-                                                            <p class="mb-3">Delete Task</p>
-                                                            <p class="text-[#667085] mb-8">Are you sure you want to
-                                                                delete this task? This action cannot be undone.</p>
-                                                        </div>
-                                                        <div class="flex justify-between">
-                                                            <div
-                                                                class="w-44 py-2 flex justify-center bg-white border-2 border-[#d0d5dd] rounded-lg pr-2">
-                                                                <button>
-                                                                    <a href="#"
-                                                                        class="close-modal1 no-underline">Cancle</a>
-                                                                </button>
-                                                            </div>
-
-                                                            <div
-                                                                class="w-44 py-2 flex justify-center bg-[#d92d20] rounded-lg">
-                                                                <button>
-                                                                    <a href="index.php?id=<?= $todo['id']; ?>&action=delete"
-                                                                        class="text-white no-underline">Delete</a>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-
-                                                    </section>
-                                                </aside>
-
+                            <div class="h-96 mt-20 flex flex-col justify-center items-center">
+                                        <p class="text-2xl mb-8" style="font-weight: 500;">You don`t  have anything created!</p>
+                                            <div class="border-2 border-black w-28 h-28 rounded-full" style="opacity: 0.5;">
+                                                <i class="fa fa-plus flex items-center justify-center " style="font-size:35px; margin-top: 35px; margin-left: -3px;"></i>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-
+                                        <p class="text-2xl mt-3" style="color: #344054; opacity: 0.5; font-weight: 500;">Create Task</p>
+                                    </div>
                                     <script src="app1.js"> </script>
-                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -298,91 +127,14 @@ if (isset($_POST['todo_submit'])) {
                         <label for="tab-3" class="px-12 py-2.5 rounded-lg ">Incompleted</label>
                         <div class="tab__content mt-2">
                             <table class="w-full">
-                                <tbody>
-                                    <?php
-                                     
-                                    foreach (incompitedTodo() as $todo) {
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <div class="flex pt-2.5 font-medium">
-                                                <div class="flex items-center w-full rounded-lg mr-2 ">
-                                                    <?php
-                                                    if ($todo['status'] == 0) { ?>
-                                                    <div
-                                                        class="bg-white  border-2 border-[#d0d5dd] flex items-center w-full p-2.5 rounded-lg py-3">
-                                                        <a href="index.php?id=<?= $todo['id'] ?>&status=done"
-                                                            class="text-2xl mr-1.5 text-[#344054] hover:text-[#344054]"><i
-                                                                class="fa-regular fa-circle-check"></i></a>
-                                                        <?= $todo['todo']; ?>
-                                                    </div>
-                                                    <?php } ?>
-                                                </div>
-
-
-
-                                                <div
-                                                    class="flex items-center border-2 border-[#d0d5dd] p-2.5 px-16 py-3 rounded-lg mr-2">
-                                                    <a href="edit.php?id=<?= $todo['id']; ?>" class="">Edit</a>
-                                                </div>
-
-                                                <section class="button-section">
-                                                    <div
-                                                        class="flex items-center border-2 border-[#f04438] p-2.5 px-12 py-3 rounded-lg bg-[#f04438]">
-                                                        <button class="open-modal2"><i
-                                                                class="fa-regular fa-trash-can text-white text-xl"></i></button>
-                                                    </div>
-                                                </section>
-
-                                                <aside id="modal-overlay2" class="hidden w-full h-screen ">
-                                                    <section id="modal-content">
-                                                        <div class="flex justify-end">
-                                                            <button class="close-modal2 font-bold">&#10005;</button>
-                                                        </div>
-                                                        <div class="flex justify-start  ml-4">
-                                                            <div class="mb-12 flex items-center justify-center">
-                                                                <div
-                                                                    class="w-16 h-16 bg-[#fef3f2] rounded-full absolute p-6">
-                                                                </div>
-                                                                <div
-                                                                    class="w-12 h-12 bg-[#fee4e2] rounded-full absolute ">
-                                                                </div>
-                                                                <p class="z-10 text-[#d92d20]"><i
-                                                                        class="fa-regular fa-trash-can"></i></p>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="">
-                                                            <p class="mb-3">Delete Task</p>
-                                                            <p class="text-[#667085] mb-8">Are you sure you want to
-                                                                delete this task? This action cannot be undone.</p>
-                                                        </div>
-                                                        <div class="flex justify-between">
-                                                            <div
-                                                                class="w-44 py-2 flex justify-center bg-white border-2 border-[#d0d5dd] rounded-lg pr-2">
-                                                                <button>
-                                                                    <a href="#"
-                                                                        class="close-modal2 no-underline">Cancle</a>
-                                                                </button>
-                                                            </div>
-
-                                                            <div
-                                                                class="w-44 py-2 flex justify-center bg-[#d92d20] rounded-lg">
-                                                                <button>
-                                                                    <a href="index.php?id=<?= $todo['id']; ?>&action=delete"
-                                                                        class="text-white no-underline">Delete</a>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </section>
-                                                </aside>
-
+                            <div class="h-96 mt-20 flex flex-col justify-center items-center">
+                                        <p class="text-2xl mb-8" style="font-weight: 500;">You don`t  have anything created!</p>
+                                            <div class="border-2 border-black w-28 h-28 rounded-full" style="opacity: 0.5;">
+                                                <i class="fa fa-plus flex items-center justify-center " style="font-size:35px; margin-top: 35px; margin-left: -3px;"></i>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
+                                        <p class="text-2xl mt-3" style="color: #344054; opacity: 0.5; font-weight: 500;">Create Task</p>
+                                    </div>
                                     <script src="app2.js"> </script>
-                                </tbody>
                             </table>
                         </div>
                     </div>

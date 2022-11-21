@@ -8,7 +8,7 @@ function createTodo($request){
     $query = "INSERT INTO `todo`(`todo`,`todo_time`) VALUES('$todo','$todo_time')";
     $execute_query = mysqli_query($con, $query);
     if($execute_query){
-        header('location:index.php');
+        header('location:index2.php');
     }
 }
 
@@ -65,14 +65,14 @@ function changeStatus($id, $status){
         $query = "UPDATE `todo` SET `status`= 0 WHERE `id` = $id";
         $execute_query = mysqli_query($con, $query);
         if($execute_query){
-            header('location: index.php');
+            header('location: index2.php');
         }
     }
     if($status === 'done'){
         $query = "UPDATE `todo` SET `status`= 1 WHERE `id` = $id";
         $execute_query = mysqli_query($con, $query);
         if($execute_query){
-            header('location: index.php');
+            header('location: index2.php');
         }
     }
 
@@ -85,9 +85,10 @@ function delete($id){
     $execute_query = mysqli_query($con, $query);
 
     if($execute_query){
-        header('location: index.php');
+        header('location: index2.php');
     }
 }
+
 
 function getSingleTodo($id){
     global $con;
